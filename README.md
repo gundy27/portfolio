@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dan Gunderson's Portfolio Website
+
+This is a personal portfolio website built with [Next.js](https://nextjs.org), showcasing my projects, skills, and experience.
 
 ## Getting Started
 
