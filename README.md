@@ -130,12 +130,14 @@ poetry run uvicorn app.main:app --reload --port 8000
 ### Database Migrations
 
 To modify the database schema:
+
 1. Create a new migration file in `supabase/migrations/`
 2. Run it via Supabase Dashboard SQL Editor
 
 ### Adding Content
 
 Log in to the dashboard at `/dashboard` to:
+
 - Add case studies
 - Upload resources
 - Manage timeline events
@@ -154,6 +156,7 @@ Log in to the dashboard at `/dashboard` to:
 ### Deploy Backend
 
 Options:
+
 - Vercel Serverless Functions
 - Railway
 - Render
@@ -187,6 +190,7 @@ Options:
 ## RAG Chatbot
 
 The chatbot uses your ai-utils RAG template and can:
+
 - Answer questions about your work
 - Cite specific page sections
 - Stream responses in real-time
