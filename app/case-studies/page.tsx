@@ -4,15 +4,21 @@ import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
   title: 'Case Studies | Dan Gunderson',
   description: 'Explore detailed project breakdowns showcasing my work in product management and development.',
 }
 
-export default function CaseStudiesPage() {
-  // TODO: Fetch case studies from Supabase
-  const caseStudies: any[] = []
+export default async function CaseStudiesPage() {
+  // Fetch case studies from Supabase
+  const supabase = await createClient()
+  const { data: caseStudies } = await supabase
+    .from('case_studies')
+    .select('*')
+    .eq('published', true)
+    .order('display_order', { ascending: true })
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -36,7 +42,7 @@ export default function CaseStudiesPage() {
         {/* Case Studies Grid */}
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            {caseStudies.length === 0 ? (
+            {!caseStudies || caseStudies.length === 0 ? (
               <Card className="card max-w-2xl mx-auto">
                 <CardHeader>
                   <CardTitle className="text-center">No Case Studies Yet</CardTitle>
