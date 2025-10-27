@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!caseStudy) return { title: 'Case Study Not Found' }
   
   return {
-    title: \`\${caseStudy.title} | Dan Gunderson\`,
+    title: `${caseStudy.title} | Dan Gunderson`,
     description: caseStudy.description,
   }
 }
