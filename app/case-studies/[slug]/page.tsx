@@ -33,6 +33,7 @@ export default async function CaseStudyDetailPage({
   // Fetch the case study
   const { data: caseStudy } = await supabase
     .from('case_studies')
+    .select('*')
     .eq('slug', params.slug)
     .eq('published', true)
     .single()
