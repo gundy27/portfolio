@@ -1,0 +1,35 @@
+[
+  {
+    "id": "datarobot-2021-2025",
+    "company": "DataRobot",
+    "role": "Senior Product Manager",
+    "startDate": "2021-03",
+    "endDate": null,
+    "description": "Leading product strategy for AI/ML platform features. Working with engineering teams to translate customer signals into focused roadmaps. Focused on developer experience and enterprise capabilities.",
+    "tags": ["Product", "AI/ML", "Enterprise"],
+    "image": "/assets/timeline/datarobot.svg",
+    "projectLinks": ["datarobot-platform"]
+  },
+  {
+    "id": "startup-2019-2021",
+    "company": "Slingshot Analytics",
+    "role": "Product Lead",
+    "startDate": "2019-06",
+    "endDate": "2021-02",
+    "description": "Built product strategy from zero to one. Launched MVP platform that scaled to 100+ enterprise customers. Managed cross-functional teams including engineering, design, and data science.",
+    "tags": ["Product", "Strategy", "Startup"],
+    "image": "/assets/timeline/slingshot.svg",
+    "projectLinks": ["analytics-platform", "customer-engagement"]
+  },
+  {
+    "id": "consulting-2017-2019",
+    "company": "Independent Consultant",
+    "role": "Product Consultant",
+    "startDate": "2017-01",
+    "endDate": "2019-05",
+    "description": "Helped startups and scale-ups define product strategy and build MVPs. Worked across industries including fintech, healthcare, and SaaS. Delivered product roadmaps and user research.",
+    "tags": ["Consulting", "Product", "Strategy"],
+    "image": "/assets/timeline/consulting.svg",
+    "projectLinks": []
+  }
+]

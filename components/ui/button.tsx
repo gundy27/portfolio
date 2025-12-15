@@ -1,50 +1,56 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { cn } from '@/lib/utils/cn'
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-  {
-    variants: {
-      variant: {
-        default: 'bg-blue-600 text-white hover:bg-blue-700',
-        secondary: 'bg-slate-800 text-white hover:bg-slate-700',
-        outline: 'border border-slate-700 bg-transparent hover:bg-slate-800/50',
-        ghost: 'hover:bg-slate-800/50 text-slate-200',
-        link: 'text-blue-400 underline-offset-4 hover:underline',
-      },
-      size: {
-        default: 'h-10 px-6 py-2',
-        sm: 'h-9 px-3',
-        lg: 'h-12 px-8',
-        icon: 'h-10 w-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  }
-)
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
   asChild?: boolean
+  href?: string
+  children: React.ReactNode
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+export function Button({
+  variant = 'primary',
+  size = 'md',
+  className,
+  asChild,
+  href,
+  children,
+  ...props
+}: ButtonProps) {
+  const baseStyles = 'font-label inline-flex items-center justify-center transition-colors'
+  
+  const variants = {
+    primary: 'bg-accent text-white hover:opacity-90',
+    secondary: 'bg-transparent text-accent hover:bg-accent/10',
+    outline: 'border border-accent text-accent hover:bg-accent/10'
+  }
+  
+  const sizes = {
+    sm: 'px-4 py-2 text-xs',
+    md: 'px-6 py-3 text-xs',
+    lg: 'px-8 py-4 text-sm'
+  }
+  
+  const classes = cn(
+    baseStyles,
+    variants[variant],
+    sizes[size],
+    className
+  )
+  
+  if (asChild && href) {
     return (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
     )
   }
-)
-Button.displayName = 'Button'
-
-export { Button, buttonVariants }
+  
+  return (
+    <button className={classes} {...props}>
+      {children}
+    </button>
+  )
+}
 

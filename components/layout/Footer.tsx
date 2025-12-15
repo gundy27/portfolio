@@ -1,72 +1,37 @@
-import Link from 'next/link'
+import { Button } from '@/components/ui/Button'
+import { LogoCarousel } from './LogoCarousel'
+import type { Profile } from '@/lib/content/types'
 
-const footerLinks = {
-  main: [
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Timeline', href: '/timeline' },
-  ],
-  social: [
-    { name: 'GitHub', href: 'https://github.com/gundy27' },
-    { name: 'LinkedIn', href: '#' },
-    { name: 'Twitter', href: '#' },
-  ],
+interface FooterProps {
+  profile: Profile
+  logos?: Array<{ name: string; image: string; url?: string }>
 }
 
-export function Footer() {
+export function Footer({ profile, logos = [] }: FooterProps) {
+  
   return (
-    <footer className="border-t border-slate-800/50 bg-slate-950">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gradient">Dan Gunderson</h3>
-            <p className="text-sm text-slate-400">
-              Product Manager & Full-Stack Developer
-            </p>
-            <p className="text-sm text-slate-400">
-              Building innovative solutions with AI and modern web technologies.
-            </p>
-          </div>
-          
-          <div className="mt-10 xl:mt-0">
-            <h3 className="text-sm font-semibold text-slate-200">Navigation</h3>
-            <ul role="list" className="mt-4 space-y-2">
-              {footerLinks.main.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-slate-400 hover:text-blue-400 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="mt-10 xl:mt-0">
-            <h3 className="text-sm font-semibold text-slate-200">Connect</h3>
-            <ul role="list" className="mt-4 space-y-2">
-              {footerLinks.social.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-slate-400 hover:text-blue-400 transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <footer className="bg-white border-t border-gray-200">
+      {logos.length > 0 && (
+        <div className="border-b border-gray-200">
+          <LogoCarousel logos={logos} />
         </div>
-        
-        <div className="mt-12 border-t border-slate-800/50 pt-8">
-          <p className="text-center text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} Dan Gunderson. All rights reserved.
-          </p>
+      )}
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div className="space-y-4">
+            <h3 className="font-heading text-2xl font-semibold text-primary">
+              Want to work together?
+            </h3>
+            <div className="space-y-2 text-body">
+              <p>{profile.email}</p>
+              {profile.location && <p className="text-secondary">{profile.location}</p>}
+            </div>
+          </div>
+          
+          <Button asChild href="https://cal.com/dangunderson" size="lg">
+            SCHEDULE MEETING
+          </Button>
         </div>
       </div>
     </footer>

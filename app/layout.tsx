@@ -1,7 +1,24 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Space_Grotesk, Poppins, Lexend_Exa } from 'next/font/google'
 import './globals.css'
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-space-grotesk',
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-poppins',
+})
+
+const lexendExa = Lexend_Exa({
+  subsets: ['latin'],
+  weight: ['600'],
+  variable: '--font-lexend-exa',
+})
 
 export const metadata: Metadata = {
   title: 'Dan Gunderson | Product Manager & Developer',
@@ -28,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
+    <html lang="en">
+      <body className={`${spaceGrotesk.variable} ${poppins.variable} ${lexendExa.variable} font-body`}>
         {children}
       </body>
     </html>

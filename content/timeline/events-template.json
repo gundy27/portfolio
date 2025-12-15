@@ -1,0 +1,14 @@
+[
+  {
+    "id": "event-slug",
+    "company": "Company Name",
+    "role": "Job Title",
+    "startDate": "2021-01",
+    "endDate": "2025-01",
+    "description": "Description of the role and key achievements",
+    "tags": ["Product", "Strategy", "Leadership"],
+    "image": "/assets/timeline/event-image.jpg",
+    "projectLinks": ["project-1", "project-2"]
+  }
+]
+

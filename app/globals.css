@@ -1,147 +1,196 @@
 @import "tailwindcss";
 
+/* Design System - See DESIGN_GUIDELINES.md for reference */
+
 @theme {
-  /* Color palette with professional tech theme */
-  --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
-  --color-secondary: #8b5cf6;
-  --color-accent: #06b6d4;
-  
-  /* Animation durations */
-  --animate-fast: 200ms;
-  --animate-normal: 300ms;
-  --animate-slow: 500ms;
+  /* Font Families */
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-poppins: var(--font-poppins);
+  --font-lexend-exa: var(--font-lexend-exa);
+
+  /* Colors */
+  --color-text-primary: #111111;
+  --color-text-body: #2C2C2C;
+  --color-text-body-alt: #333333;
+  --color-text-secondary: #6A6A6A;
+  --color-bg-primary: #FAFAFA;
+  --color-bg-white: #FFFFFF;
+  --color-accent: #4A67FF;
 }
 
-/* Base styles */
+/* Base Styles */
 body {
-  @apply bg-slate-950 text-slate-50 antialiased;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-body);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Typography Classes */
+
+/* Headings - Space Grotesk */
+h1 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 48px; /* 1× font size */
 }
 
-/* Hexagon clip path utilities */
-.clip-hexagon {
-  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+h2 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 32px; /* 1× font size */
 }
 
-.clip-hexagon-flat {
-  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+h3 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 24px; /* 1× font size */
 }
 
-/* Animated gradient background */
-.gradient-animate {
-  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent));
-  background-size: 200% 200%;
-  animation: gradient 15s ease infinite;
+h4 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 20px; /* 1× font size */
 }
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+h5 {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
-/* Hexagon grid pattern */
-.hexagon-pattern {
-  background-image: 
-    linear-gradient(30deg, rgba(59, 130, 246, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.1) 87.5%, rgba(59, 130, 246, 0.1)),
-    linear-gradient(150deg, rgba(59, 130, 246, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.1) 87.5%, rgba(59, 130, 246, 0.1)),
-    linear-gradient(30deg, rgba(59, 130, 246, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.1) 87.5%, rgba(59, 130, 246, 0.1)),
-    linear-gradient(150deg, rgba(59, 130, 246, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.1) 87.5%, rgba(59, 130, 246, 0.1)),
-    linear-gradient(60deg, rgba(139, 92, 246, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(139, 92, 246, 0.05) 75%, rgba(139, 92, 246, 0.05)),
-    linear-gradient(60deg, rgba(139, 92, 246, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(139, 92, 246, 0.05) 75%, rgba(139, 92, 246, 0.05));
-  background-size: 80px 140px;
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+/* Body Text - Poppins */
+p {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6; /* 160% - within 150-165% range */
+  color: var(--color-text-body);
+  margin-top: 0;
+  margin-bottom: 1.25em; /* Paragraph spacing */
 }
 
-/* Text gradient */
-.text-gradient {
-  @apply bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent;
+/* Small Body - Poppins */
+small,
+.text-small {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
 }
 
-/* Glass morphism effect */
-.glass {
-  background-color: rgb(15 23 42 / 0.5);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgb(30 41 59 / 0.5);
+/* Labels / Buttons - Lexend Exa */
+label,
+button,
+.label,
+.btn-label {
+  font-family: var(--font-lexend-exa), sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.1; /* 110% */
+  letter-spacing: 0.08em; /* ~8% - within 6-10% range */
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
-/* Custom scrollbar */
-.scrollbar-custom::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Utility Classes */
+
+.font-body {
+  font-family: var(--font-poppins), sans-serif;
 }
 
-.scrollbar-custom::-webkit-scrollbar-track {
-  background-color: rgb(15 23 42);
+.font-heading {
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
-.scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: rgb(51 65 85);
-  border-radius: 9999px;
+.font-label {
+  font-family: var(--font-lexend-exa), sans-serif;
 }
 
-.scrollbar-custom::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(71 85 105);
+/* Spacing Utilities */
+.space-before-h1 {
+  margin-top: 120px; /* 2.5× 48px */
 }
 
-/* Component styles */
-.card {
-  background-color: rgb(15 23 42 / 0.8);
-  border: 1px solid rgb(30 41 59 / 0.5);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  backdrop-filter: blur(4px);
+.space-before-h2 {
+  margin-top: 80px; /* 2.5× 32px */
 }
 
-.card-hover {
-  background-color: rgb(15 23 42 / 0.8);
-  border: 1px solid rgb(30 41 59 / 0.5);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
+.space-before-h3 {
+  margin-top: 60px; /* 2.5× 24px */
 }
 
-.card-hover:hover {
-  border-color: rgb(59 130 246 / 0.5);
-  box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.1), 0 4px 6px -4px rgb(59 130 246 / 0.1);
+.space-before-h4 {
+  margin-top: 50px; /* 2.5× 20px */
 }
 
-/* Input styles */
-.input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  background-color: rgb(15 23 42);
-  border: 1px solid rgb(51 65 85);
-  border-radius: 0.5rem;
-  color: rgb(241 245 249);
-  outline: none;
-  transition: all 0.2s ease;
+/* Section Spacing */
+.section-spacing {
+  margin-top: 64px;
+  margin-bottom: 64px;
 }
 
-.input::placeholder {
-  color: rgb(100 116 139);
+.section-spacing-large {
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
-.input:focus {
-  outline: none;
-  ring: 2px solid rgb(59 130 246);
-  border-color: transparent;
+.subsection-spacing {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
-/* Link styles */
-.link {
-  color: rgb(96 165 250);
-  text-underline-offset: 4px;
-  transition: color 0.2s ease;
+.subsection-spacing-large {
+  margin-top: 56px;
+  margin-bottom: 56px;
 }
 
-.link:hover {
-  color: rgb(147 197 253);
-  text-decoration: underline;
+/* Text Block Width */
+.text-block {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-block-narrow {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Accent Color */
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
 }
