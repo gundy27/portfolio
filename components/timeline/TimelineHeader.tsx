@@ -1,5 +1,6 @@
 'use client'
 
+// Framer Motion for animations
 import { motion } from 'framer-motion'
 
 export function TimelineHeader() {
