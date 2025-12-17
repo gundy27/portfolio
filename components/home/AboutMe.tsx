@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { RotatingText } from '@/components/ui/RotatingText'
+import { SectionHeader } from '@/components/ui/SectionHeader'
 
 interface AboutMeProps {
   tagline: string
@@ -11,18 +12,22 @@ interface AboutMeProps {
 
 export function AboutMe({ tagline, rotatingText = [] }: AboutMeProps) {
   return (
-    <section className="section-spacing-large">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="section-spacing-large !mb-32 sm:!mb-48 lg:!mb-64">
+      <div className="container-wide">
         <div className="text-block">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="space-before-h2"
           >
-            About Me
-          </motion.h2>
+            <SectionHeader
+              label="ABOUT ME"
+              heading="About Me"
+              headingLevel="h2"
+            />
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}

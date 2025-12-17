@@ -24,9 +24,9 @@ export function ResourcePreview({ resource, onDownload }: ResourcePreviewProps) 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-lg border border-gray-200 p-8"
+      className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6 lg:p-8"
     >
-      <div className="relative aspect-video mb-6 overflow-hidden bg-gray-100 rounded-lg">
+      <div className="relative aspect-video mb-4 sm:mb-6 overflow-hidden bg-gray-100 rounded-lg">
           <Image
             src="/assets/resources/preview-placeholder.svg"
             alt={resource.title}
@@ -39,7 +39,7 @@ export function ResourcePreview({ resource, onDownload }: ResourcePreviewProps) 
         variant="primary"
         size="lg"
         onClick={() => onDownload(resource.id)}
-        className="w-full"
+        className="w-full text-xs sm:text-sm"
       >
         DOWNLOAD ({resource.downloads} downloads)
       </Button>

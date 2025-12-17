@@ -17,10 +17,12 @@ Modern portfolio website built with Next.js 16, React 19, and Framer Motion. Fea
 ### Content Management
 
 The site uses a hybrid JSON + Markdown approach:
+
 - **JSON** for structured metadata (projects, timeline, resources)
 - **Markdown** for rich content (project descriptions, case studies)
 
 This allows for:
+
 - Easy updates without a CMS
 - Version control for all content
 - Type-safe content access
@@ -47,4 +49,3 @@ This allows for:
 - Lighthouse score: **100/100**
 - First Contentful Paint: **< 1s**
 - Time to Interactive: **< 2s**
-

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Label } from '@/components/ui/Label'
+import { SectionHeader } from '@/components/ui/SectionHeader'
 import type { Project } from '@/lib/content/types'
 
 interface FeaturedProjectsProps {
@@ -17,19 +18,26 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   }
   
   return (
-    <section className="section-spacing-large bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.h2
+    <section className="section-spacing-large bg-white !mt-32 sm:!mt-48 lg:!mt-64">
+      <div className="container-wide pt-16 sm:pt-20 lg:pt-24">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="space-before-h2 text-center"
         >
-          Featured Projects
-        </motion.h2>
+          <SectionHeader
+            label="FEATURED PROJECTS"
+            heading="Featured Projects"
+            headingLevel="h2"
+            className="items-center"
+            labelClassName="text-center"
+            headingClassName="text-center"
+          />
+        </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12 lg:mt-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -65,11 +73,11 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                   ))}
                 </div>
                 
-                <h3 className="font-heading text-xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
+                <h3 className="font-heading text-lg sm:text-xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-body text-sm">{project.description}</p>
+                <p className="text-body text-xs sm:text-sm">{project.description}</p>
               </Link>
             </motion.div>
           ))}

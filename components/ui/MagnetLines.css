@@ -1,0 +1,9 @@
+.magnetLines-container {
+  place-items: center;
+}
+
+.magnetLines-container span {
+  transform: rotate(var(--rotate));
+  transform-origin: center;
+  transition: transform 0.1s ease-out;
+}

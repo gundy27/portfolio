@@ -64,10 +64,10 @@ export default function ResourcesPage() {
       <Header />
       
       <main className="flex-1">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           <ResourcesHeader />
           
-          <div className="grid lg:grid-cols-3 gap-8 mt-16">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12 lg:mt-16">
             <div className="lg:col-span-2">
               <ResourcesTable
                 resources={resources}
@@ -75,7 +75,7 @@ export default function ResourcesPage() {
               />
             </div>
             
-            <div>
+            <div className="mt-8 lg:mt-0">
               <ResourcePreview
                 resource={selectedResource}
                 onDownload={handleDownload}

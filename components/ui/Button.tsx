@@ -41,8 +41,10 @@ export function Button({
   
   if (asChild && href) {
     return (
-      <Link href={href} className={classes}>
-        {children}
+      <Link href={href}>
+        <span className={classes}>
+          {children}
+        </span>
       </Link>
     )
   }

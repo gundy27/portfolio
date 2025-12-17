@@ -20,16 +20,17 @@ export function ResourceRow({ resource, onRatingChange }: ResourceRowProps) {
       animate={{ opacity: 1, y: 0 }}
       className="border-b border-gray-200 py-4"
     >
-      <div className="flex items-start gap-4">
-        <div className="flex-1">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="font-heading text-lg font-semibold text-primary">
+      <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4">
+        <div className="flex-1 w-full min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+            <h3 className="font-heading text-base sm:text-lg font-semibold text-primary">
               {resource.title}
             </h3>
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsExpanded(!isExpanded)}
+              className="self-start sm:self-auto"
             >
               {isExpanded ? 'COLLAPSE' : 'EXPAND'}
             </Button>
@@ -44,7 +45,7 @@ export function ResourceRow({ resource, onRatingChange }: ResourceRowProps) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <p className="text-body mb-4">{resource.description}</p>
+                <p className="text-body mb-4 text-sm sm:text-base">{resource.description}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -54,7 +55,7 @@ export function ResourceRow({ resource, onRatingChange }: ResourceRowProps) {
           )}
         </div>
         
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-start border-t sm:border-t-0 pt-4 sm:pt-0">
           <div className="flex items-center gap-2">
             <button
               onClick={() => onRatingChange(resource.id, -1)}
@@ -65,7 +66,7 @@ export function ResourceRow({ resource, onRatingChange }: ResourceRowProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <span className="font-heading text-lg font-semibold text-primary min-w-[3rem] text-center">
+            <span className="font-heading text-base sm:text-lg font-semibold text-primary min-w-[2.5rem] sm:min-w-[3rem] text-center">
               {resource.rating >= 0 ? '+' : ''}{resource.rating}
             </span>
             <button

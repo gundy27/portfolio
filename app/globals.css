@@ -35,16 +35,6 @@ body {
 h1 {
   font-family: var(--font-space-grotesk), sans-serif;
   font-weight: 600;
-  font-size: 48px;
-  line-height: 1.2;
-  color: var(--color-text-primary);
-  margin-top: 0;
-  margin-bottom: 48px; /* 1× font size */
-}
-
-h2 {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 600;
   font-size: 32px;
   line-height: 1.2;
   color: var(--color-text-primary);
@@ -52,9 +42,23 @@ h2 {
   margin-bottom: 32px; /* 1× font size */
 }
 
-h3 {
+@media (min-width: 640px) {
+  h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+h2 {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 24px;
   line-height: 1.2;
   color: var(--color-text-primary);
@@ -62,7 +66,21 @@ h3 {
   margin-bottom: 24px; /* 1× font size */
 }
 
-h4 {
+@media (min-width: 640px) {
+  h2 {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+}
+
+h3 {
   font-family: var(--font-space-grotesk), sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -70,6 +88,44 @@ h4 {
   color: var(--color-text-primary);
   margin-top: 0;
   margin-bottom: 20px; /* 1× font size */
+}
+
+@media (min-width: 640px) {
+  h3 {
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+h4 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 18px; /* 1× font size */
+}
+
+@media (min-width: 640px) {
+  h4 {
+    font-size: 19px;
+    margin-bottom: 19px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 h5 {
@@ -133,25 +189,87 @@ button,
 
 /* Spacing Utilities */
 .space-before-h1 {
-  margin-top: 120px; /* 2.5× 48px */
+  margin-top: 64px; /* Mobile: 2× 32px */
+}
+
+@media (min-width: 640px) {
+  .space-before-h1 {
+    margin-top: 80px; /* Tablet: 2× 40px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-before-h1 {
+    margin-top: 120px; /* Desktop: 2.5× 48px */
+  }
 }
 
 .space-before-h2 {
-  margin-top: 80px; /* 2.5× 32px */
+  margin-top: 48px; /* Mobile: 2× 24px */
+}
+
+@media (min-width: 640px) {
+  .space-before-h2 {
+    margin-top: 56px; /* Tablet: 2× 28px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-before-h2 {
+    margin-top: 80px; /* Desktop: 2.5× 32px */
+  }
 }
 
 .space-before-h3 {
-  margin-top: 60px; /* 2.5× 24px */
+  margin-top: 40px; /* Mobile: 2× 20px */
+}
+
+@media (min-width: 640px) {
+  .space-before-h3 {
+    margin-top: 44px; /* Tablet: 2× 22px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-before-h3 {
+    margin-top: 60px; /* Desktop: 2.5× 24px */
+  }
 }
 
 .space-before-h4 {
-  margin-top: 50px; /* 2.5× 20px */
+  margin-top: 36px; /* Mobile: 2× 18px */
+}
+
+@media (min-width: 640px) {
+  .space-before-h4 {
+    margin-top: 38px; /* Tablet: 2× 19px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-before-h4 {
+    margin-top: 50px; /* Desktop: 2.5× 20px */
+  }
 }
 
 /* Section Spacing */
 .section-spacing {
-  margin-top: 64px;
-  margin-bottom: 64px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 640px) {
+  .section-spacing {
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
 }
 
 .section-spacing-large {
@@ -159,14 +277,56 @@ button,
   margin-bottom: 80px;
 }
 
+@media (min-width: 640px) {
+  .section-spacing-large {
+    margin-top: 96px;
+    margin-bottom: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing-large {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+}
+
 .subsection-spacing {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .subsection-spacing {
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .subsection-spacing {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.subsection-spacing-large {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-.subsection-spacing-large {
-  margin-top: 56px;
-  margin-bottom: 56px;
+@media (min-width: 640px) {
+  .subsection-spacing-large {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .subsection-spacing-large {
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
 }
 
 /* Text Block Width */
@@ -182,6 +342,44 @@ button,
   margin-right: auto;
 }
 
+/* Container Widths - Enhanced Desktop Whitespace */
+.container-wide {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+}
+
+@media (min-width: 640px) {
+  .container-wide {
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem; /* px-6 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-wide {
+    padding-left: 3rem; /* px-12 */
+    padding-right: 3rem; /* px-12 */
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-wide {
+    padding-left: 4rem; /* px-16 */
+    padding-right: 4rem; /* px-16 */
+  }
+}
+
+/* Alternative: Extra generous padding for XL screens */
+@media (min-width: 1536px) {
+  .container-wide {
+    padding-left: 6rem; /* px-24 */
+    padding-right: 6rem; /* px-24 */
+  }
+}
+
 /* Accent Color */
 .text-accent {
   color: var(--color-accent);
@@ -193,4 +391,66 @@ button,
 
 .border-accent {
   border-color: var(--color-accent);
+}
+
+/* Section Header Pattern */
+.section-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-label {
+  margin-bottom: 12px; /* Spacing between label and header */
+}
+
+@media (min-width: 640px) {
+  .section-label {
+    margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-label {
+    margin-bottom: 16px;
+  }
+}
+
+.section-heading {
+  margin-top: 0; /* Remove default margin-top since spacing is handled by label */
+}
+
+/* Navbar Gradient Background */
+.navbar-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0.75) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Timeline Scroll Snap Styles */
+.timeline-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.timeline-snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Hide scrollbar for timeline but keep functionality */
+.timeline-snap-container::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.timeline-snap-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

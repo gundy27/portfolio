@@ -46,11 +46,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           ))}
         </div>
         
-        <h3 className="font-heading text-xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
+        <h3 className="font-heading text-lg sm:text-xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
           {project.title}
         </h3>
         
-        <p className="text-body text-sm">{project.description}</p>
+        <p className="text-body text-xs sm:text-sm">{project.description}</p>
       </Link>
     </motion.div>
   )

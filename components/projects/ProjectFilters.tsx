@@ -18,12 +18,13 @@ export function ProjectFilters({ activeFilter, onFilterChange }: ProjectFiltersP
   ]
   
   return (
-    <div className="flex gap-4 justify-center mb-12">
+    <div className="flex flex-wrap gap-3 sm:gap-4 justify-center mb-8 sm:mb-10 lg:mb-12">
       {filters.map((filter) => (
         <Button
           key={filter.value}
           variant={activeFilter === filter.value ? 'primary' : 'outline'}
           onClick={() => onFilterChange(filter.value)}
+          className="text-xs sm:text-sm"
         >
           {filter.label}
         </Button>
