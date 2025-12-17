@@ -51,6 +51,7 @@ export interface TimelineEvent {
   description: string
   tags: string[]
   image: string
+  color?: string // Hex color used for active state and progress UI
   projectLinks?: string[] // Array of project IDs
 }
 

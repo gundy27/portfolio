@@ -7,6 +7,7 @@
     "endDate": null,
     "description": "Leading product strategy for AI/ML platform features. Working with engineering teams to translate customer signals into focused roadmaps. Focused on developer experience and enterprise capabilities.",
     "tags": ["Product", "AI/ML", "Enterprise"],
+    "color": "#2E7D32",
     "image": "/assets/timeline/datarobot.svg",
     "projectLinks": ["datarobot-platform"]
   },
@@ -18,6 +19,7 @@
     "endDate": "2021-02",
     "description": "Built product strategy from zero to one. Launched MVP platform that scaled to 100+ enterprise customers. Managed cross-functional teams including engineering, design, and data science.",
     "tags": ["Product", "Strategy", "Startup"],
+    "color": "#4A67FF",
     "image": "/assets/timeline/slingshot.svg",
     "projectLinks": ["analytics-platform", "customer-engagement"]
   },
@@ -29,6 +31,7 @@
     "endDate": "2019-05",
     "description": "Helped startups and scale-ups define product strategy and build MVPs. Worked across industries including fintech, healthcare, and SaaS. Delivered product roadmaps and user research.",
     "tags": ["Consulting", "Product", "Strategy"],
+    "color": "#D97706",
     "image": "/assets/timeline/consulting.svg",
     "projectLinks": []
   }

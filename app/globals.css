@@ -2,13 +2,7 @@
 
 /* Design System - See DESIGN_GUIDELINES.md for reference */
 
-@theme {
-  /* Font Families */
-  --font-space-grotesk: var(--font-space-grotesk);
-  --font-poppins: var(--font-poppins);
-  --font-lexend-exa: var(--font-lexend-exa);
-
-  /* Colors */
+:root {
   --color-text-primary: #111111;
   --color-text-body: #2C2C2C;
   --color-text-body-alt: #333333;
@@ -442,6 +436,18 @@ button,
 .timeline-snap-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+/* Mobile: disable scroll-snap for better UX */
+@media (max-width: 1023px) {
+  .timeline-snap-container {
+    scroll-snap-type: none;
+  }
+
+  .timeline-snap-section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
 }
 
 /* Hide scrollbar for timeline but keep functionality */

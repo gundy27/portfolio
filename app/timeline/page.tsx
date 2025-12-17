@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { TimelineHeader } from '@/components/timeline/TimelineHeader'
@@ -13,6 +13,7 @@ export default function TimelinePage() {
   const [profile, setProfile] = useState<Profile | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
+  const sectionElsRef = useRef<(HTMLElement | null)[]>([])
 
   useEffect(() => {
     fetch('/api/timeline')
@@ -26,30 +27,49 @@ export default function TimelinePage() {
       .catch(() => setProfile({ email: '', name: '', headline: '', tagline: '', bio: '', links: {} }))
   }, [])
 
-  // Track which section is currently in view
-  const handleScroll = useCallback(() => {
-    if (!containerRef.current || events.length === 0) return
+  const isDesktopSnap = useMemo(() => {
+    if (typeof window === 'undefined') return true
+    return window.matchMedia('(min-width: 1024px)').matches
+  }, [])
 
-    const container = containerRef.current
-    const scrollTop = container.scrollTop
-    const sectionHeight = container.clientHeight
-    
-    // Calculate which section we're in (accounting for header section)
-    const currentSection = Math.round(scrollTop / sectionHeight) - 1 // -1 for header
-    const clampedIndex = Math.max(0, Math.min(currentSection, events.length - 1))
-    
-    if (clampedIndex !== activeIndex) {
-      setActiveIndex(clampedIndex)
-    }
-  }, [events.length, activeIndex])
-
+  // Track which timeline section is active (excludes header/footer snap sections)
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
+    if (!events.length) return
 
-    container.addEventListener('scroll', handleScroll)
-    return () => container.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
+    const els = sectionElsRef.current.filter(Boolean) as HTMLElement[]
+    if (!els.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const intersecting = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))
+
+        const top = intersecting[0]
+        if (!top?.target) return
+
+        const idx = Number((top.target as HTMLElement).dataset.timelineIndex)
+        if (Number.isFinite(idx)) setActiveIndex(idx)
+      },
+      {
+        root: container,
+        // Treat the middle band of the viewport as the activation zone.
+        rootMargin: '-45% 0px -45% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    )
+
+    els.forEach((el) => {
+      observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [events.length])
+
+  const setSectionEl = (index: number) => (el: HTMLElement | null) => {
+    sectionElsRef.current[index] = el
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -77,6 +97,8 @@ export default function TimelinePage() {
                 alignment={index % 2 === 0 ? 'left' : 'right'}
                 index={index}
                 isActive={index === activeIndex}
+                color={event.color}
+                ref={setSectionEl(index)}
               />
             ))}
 
@@ -85,6 +107,7 @@ export default function TimelinePage() {
               events={events}
               activeIndex={activeIndex}
               containerRef={containerRef}
+              isDesktopSnap={isDesktopSnap}
             />
           </>
         ) : (
