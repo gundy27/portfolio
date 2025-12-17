@@ -1,6 +1,6 @@
 # Design Guidelines
 
-**Last Updated**: January 2025
+**Last Updated**: January 2025 (includes Timeline v2 patterns)
 
 This document defines the design system for the portfolio website. **Always reference this file when making UI changes.**
 
@@ -200,6 +200,52 @@ All typography scales responsively:
 
 - Keep accents minimal — prefer monochrome with a hint of color.
 - Use sparingly for interactive elements only.
+
+---
+
+## Timeline Component Patterns
+
+### Timeline Event Colors
+
+Timeline events support optional custom colors via the `color` property:
+
+- **Default**: `#4A67FF` (accent color) if not specified
+- **Usage**: Each timeline event can have a unique hex color for visual distinction
+- **Application**: Used for timeline nodes, progress line, and active states
+- **Examples**:
+  - `#2E7D32` (green) for current role
+  - `#4A67FF` (slate blue) for previous roles
+  - `#D97706` (orange) for consulting work
+
+### Timeline Progress Line
+
+**Desktop (≥1024px)**:
+
+- Fixed left-side progress line with dynamic positioning
+- Dotted background line (`#D1D5DB`) with 2px width, 12px dash pattern
+- Animated progress line using event color
+- Year labels positioned to the right of event nodes
+- Active event node scales to 1.2× with pulsing animation
+
+**Mobile/Tablet (<1024px)**:
+
+- Fixed left-side progress line at `left-4 sm:left-6`
+- Simplified layout without year labels
+- Same dotted background and progress animation
+
+### Timeline Section Layout
+
+- **Grid**: `lg:grid-cols-[minmax(0,720px)_minmax(0,1fr)]` for content + image
+- **Content Card**: White background, rounded corners, border, shadow-sm
+- **Padding**: `p-6 sm:p-8` (responsive)
+- **Timeline Node**: 3.5×3.5px circle, positioned at `left-2 sm:left-3`, border uses event color
+- **Image**: 4:3 aspect ratio, hidden on mobile, shown on desktop
+
+### Scroll Behavior
+
+- **Desktop**: Scroll snap enabled for smooth section-to-section navigation
+- **Mobile**: Scroll snap disabled for better touch scrolling UX
+- **Progress**: Animated based on scroll position using Framer Motion
 
 ---
 
