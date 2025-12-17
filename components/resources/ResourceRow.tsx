@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Resource } from '@/lib/content/types'
 import { Label } from '@/components/ui/Label'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 
 interface ResourceRowProps {
   resource: Resource

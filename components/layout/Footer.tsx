@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 import { LogoCarousel } from './LogoCarousel'
 import type { Profile } from '@/lib/content/types'
 
