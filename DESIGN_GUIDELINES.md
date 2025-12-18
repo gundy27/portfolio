@@ -51,7 +51,7 @@ This document defines the design system for the portfolio website. **Always refe
 **Label Variants:**
 
 - **Default**: Secondary gray (`#6A6A6A`) — for tags, metadata, general labels
-- **Accent**: Accent color (`#4A67FF`) — for section labels above headers
+- **Accent**: Accent color (`#598392`) — for section labels above headers
 
 #### Section Headers
 
@@ -88,7 +88,7 @@ Use the `SectionHeader` component for consistent section introductions:
 ### Section Header Pattern
 
 - **Label to Header spacing**: 12px (mobile) → 14px (tablet) → 16px (desktop)
-- **Label**: Accent color (`#4A67FF`), uppercase, Lexend Exa
+- **Label**: Accent color (`#598392`), uppercase, Lexend Exa
 - **Header**: Maintains existing typography scale and spacing
 - Use `SectionHeader` component for consistent implementation
 
@@ -194,7 +194,7 @@ All typography scales responsively:
 
 **Use ONE subtle, muted accent for buttons & labels:**
 
-- **Slate Blue**: #4A67FF
+- **Teal Blue**: #598392
 
 **Guidelines:**
 
@@ -209,12 +209,12 @@ All typography scales responsively:
 
 Timeline events support optional custom colors via the `color` property:
 
-- **Default**: `#4A67FF` (accent color) if not specified
+- **Default**: `#598392` (accent color) if not specified
 - **Usage**: Each timeline event can have a unique hex color for visual distinction
 - **Application**: Used for timeline nodes, progress line, and active states
 - **Examples**:
   - `#2E7D32` (green) for current role
-  - `#4A67FF` (slate blue) for previous roles
+  - `#598392` (teal blue) for previous roles
   - `#D97706` (orange) for consulting work
 
 ### Timeline Progress Line
@@ -303,7 +303,7 @@ Headers: #111111
 Body: #2C2C2C / #333333
 Secondary: #6A6A6A
 Background: #FAFAFA / #FFFFFF
-Accent: #4A67FF (use sparingly)
+Accent: #598392 (use sparingly)
 ```
 
 ### Responsive Design

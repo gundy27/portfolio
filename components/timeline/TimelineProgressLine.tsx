@@ -26,7 +26,7 @@ export function TimelineProgressLine({
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   const activeColor = useMemo(() => {
-    const fallback = '#4A67FF'
+    const fallback = '#598392'
     if (!events.length) return fallback
     return events[Math.max(0, Math.min(activeIndex, events.length - 1))]?.color ?? fallback
   }, [events, activeIndex])
@@ -103,7 +103,7 @@ export function TimelineProgressLine({
             {events.map((event, index) => {
               const isCompleted = index < activeIndex
               const isActive = index === activeIndex
-              const eventColor = event.color ?? '#4A67FF'
+              const eventColor = event.color ?? '#598392'
 
               return (
                 <motion.div
@@ -183,7 +183,7 @@ export function TimelineProgressLine({
             {events.map((event, index) => {
               const isCompleted = index < activeIndex
               const isActive = index === activeIndex
-              const eventColor = event.color ?? '#4A67FF'
+              const eventColor = event.color ?? '#598392'
 
               return (
                 <motion.div

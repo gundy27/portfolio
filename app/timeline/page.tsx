@@ -1,28 +1,12 @@
-'use client'
-
-// React hooks
-import { useState, useEffect } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { TimelineHeader } from '@/components/timeline/TimelineHeader'
 import { TimelineSection } from '@/components/timeline/TimelineSection'
-import type { TimelineEvent, Profile } from '@/lib/content/types'
+import { getProfile, getTimelineEvents } from '@/lib/content/loader.server'
 
 export default function TimelinePage() {
-  const [events, setEvents] = useState<TimelineEvent[]>([])
-  const [profile, setProfile] = useState<Profile | null>(null)
-
-  useEffect(() => {
-    fetch('/api/timeline')
-      .then(res => res.json())
-      .then(data => setEvents(data))
-      .catch(() => setEvents([]))
-
-    fetch('/api/profile')
-      .then(res => res.json())
-      .then(data => setProfile(data))
-      .catch(() => setProfile({ email: '', name: '', headline: '', tagline: '', bio: '', links: {} }))
-  }, [])
+  const events = getTimelineEvents()
+  const profile = getProfile()
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -56,11 +40,9 @@ export default function TimelinePage() {
           </div>
         </div>
 
-        {profile && (
-          <div className="mt-24">
-            <Footer profile={profile} />
-          </div>
-        )}
+        <div className="mt-24">
+          <Footer profile={profile} />
+        </div>
       </main>
     </div>
   )

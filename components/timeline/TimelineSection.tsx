@@ -21,7 +21,7 @@ export function TimelineSection({ event }: TimelineSectionProps) {
     ? `${formatDate(event.startDate)} - ${formatDate(event.endDate)}`
     : `${formatDate(event.startDate)} - Present`
 
-  const eventColor = event.color ?? '#4A67FF'
+  const eventColor = event.color ?? '#598392'
 
   return (
     <li className="relative pl-10 sm:pl-14 py-10">

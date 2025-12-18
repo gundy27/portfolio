@@ -57,7 +57,7 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="font-heading text-xl font-semibold text-primary">
-            Dan Gunderson
+            gundy.io
           </Link>
           
           {/* Desktop Menu */}
@@ -70,6 +70,9 @@ export function Header() {
             </Link>
             <Link href="/resources">
               <Label>RESOURCES</Label>
+            </Link>
+            <Link href="/design-system">
+              <Label>DESIGN SYSTEM</Label>
             </Link>
           </div>
 
@@ -139,6 +142,13 @@ export function Header() {
                   className="px-4 py-2 hover:bg-gray-50 transition-colors"
                 >
                   <Label>RESOURCES</Label>
+                </Link>
+                <Link
+                  href="/design-system"
+                  onClick={closeMenu}
+                  className="px-4 py-2 hover:bg-gray-50 transition-colors"
+                >
+                  <Label>DESIGN SYSTEM</Label>
                 </Link>
               </div>
             </motion.div>
