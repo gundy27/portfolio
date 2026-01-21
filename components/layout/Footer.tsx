@@ -1,14 +1,14 @@
 import { Button } from '@/components/ui/Button'
 import { LogoCarousel } from './LogoCarousel'
-import type { Profile } from '@/lib/content/types'
+import { getProfile } from '@/lib/content/loader.server'
 
 interface FooterProps {
-  profile: Profile
   logos?: Array<{ name: string; image: string; url?: string }>
 }
 
-export function Footer({ profile, logos = [] }: FooterProps) {
-  
+export function Footer({ logos = [] }: FooterProps = {}) {
+  const profile = getProfile()
+
   return (
     <footer className="bg-white border-t border-gray-200">
       {logos.length > 0 && (

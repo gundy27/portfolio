@@ -29,7 +29,7 @@ The platform was designed with these core principles:
 3. **Query Engine**: Fast aggregation and filtering
 4. **API Layer**: RESTful APIs for all operations
 
-![Platform Architecture](/assets/projects/analytics-architecture.png)
+![Platform Architecture](/assets/projects/analytics-platform.svg)
 
 ## Impact
 

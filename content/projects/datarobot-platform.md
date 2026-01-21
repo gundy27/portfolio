@@ -29,7 +29,7 @@ Created a guided onboarding experience that:
 3. **Integrated Documentation**: Context-aware help within the platform
 4. **Progress Tracking**: Visual indicators showing completion status
 
-![Developer Dashboard](/assets/projects/datarobot-dashboard.png)
+![Developer Dashboard](/assets/projects/datarobot-platform.jpg)
 
 ## Results
 

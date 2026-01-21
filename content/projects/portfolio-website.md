@@ -18,7 +18,7 @@ Modern portfolio website built with Next.js 16, React 19, and Framer Motion. Fea
 
 The site uses a hybrid JSON + Markdown approach:
 
-- **JSON** for structured metadata (projects, timeline, resources)
+- **JSON** for structured metadata (projects, timeline)
 - **Markdown** for rich content (project descriptions, case studies)
 
 This allows for:
@@ -35,14 +35,13 @@ This allows for:
 - **Tailwind CSS** for styling
 - **TypeScript** throughout
 
-![Homepage Screenshot](/assets/projects/portfolio-homepage.png)
+![Homepage Screenshot](/assets/projects/portfolio.svg)
 
 ## Key Pages
 
 1. **Home**: Hero section, about me, featured projects
 2. **Timeline**: Interactive career timeline with sticky scroll
 3. **Projects**: Filterable project gallery with detail pages
-4. **Resources**: Downloadable resources with ratings
 
 ## Performance
 

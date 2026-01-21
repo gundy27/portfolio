@@ -31,17 +31,6 @@ export interface Project {
   contentFile?: string // Optional markdown file
 }
 
-export interface Resource {
-  id: string
-  title: string
-  description: string
-  file: string
-  fileType: string
-  downloads: number
-  rating: number
-  category: 'template' | 'document' | 'code' | 'other'
-}
-
 export interface TimelineEvent {
   id: string
   company: string

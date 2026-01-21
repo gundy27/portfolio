@@ -1,7 +1,7 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/home/Hero'
-import { AboutMe } from '@/components/home/AboutMe'
+import { PrimaryAttributes } from '@/components/home/PrimaryAttributes'
 import { FeaturedProjects } from '@/components/home/FeaturedProjects'
 import { getProfile, getFeaturedProjects } from '@/lib/content/loader.server'
 
@@ -14,12 +14,12 @@ export default async function HomePage() {
       <Header />
       
       <main className="flex-1">
-        <Hero name={profile.name} headline={profile.headline} />
-        <AboutMe tagline={profile.tagline} rotatingText={profile.rotatingText} />
+        <Hero name={profile.name} />
+        <PrimaryAttributes />
         <FeaturedProjects projects={featuredProjects} />
       </main>
       
-      <Footer profile={profile} />
+      <Footer />
     </div>
   )
 }

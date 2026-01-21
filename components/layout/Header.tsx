@@ -68,9 +68,6 @@ export function Header() {
             <Link href="/projects">
               <Label>PROJECTS</Label>
             </Link>
-            <Link href="/resources">
-              <Label>RESOURCES</Label>
-            </Link>
             <Link href="/design-system">
               <Label>DESIGN SYSTEM</Label>
             </Link>
@@ -135,13 +132,6 @@ export function Header() {
                   className="px-4 py-2 hover:bg-gray-50 transition-colors"
                 >
                   <Label>PROJECTS</Label>
-                </Link>
-                <Link
-                  href="/resources"
-                  onClick={closeMenu}
-                  className="px-4 py-2 hover:bg-gray-50 transition-colors"
-                >
-                  <Label>RESOURCES</Label>
                 </Link>
                 <Link
                   href="/design-system"

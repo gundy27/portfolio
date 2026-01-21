@@ -155,7 +155,6 @@ small,
 
 /* Labels / Buttons - Lexend Exa */
 label,
-button,
 .label,
 .btn-label {
   font-family: var(--font-lexend-exa), sans-serif;
@@ -165,6 +164,18 @@ button,
   letter-spacing: 0.08em; /* ~8% - within 6-10% range */
   text-transform: uppercase;
   color: var(--color-text-secondary);
+}
+
+@layer base {
+  /* Button base typography (color handled by component) */
+  button {
+    font-family: var(--font-lexend-exa), sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.1; /* 110% */
+    letter-spacing: 0.08em; /* ~8% - within 6-10% range */
+    text-transform: uppercase;
+  }
 }
 
 /* Utility Classes */
@@ -425,38 +436,3 @@ button,
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Timeline Scroll Snap Styles */
-.timeline-snap-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-  scroll-behavior: smooth;
-}
-
-.timeline-snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* Mobile: disable scroll-snap for better UX */
-@media (max-width: 1023px) {
-  .timeline-snap-container {
-    scroll-snap-type: none;
-  }
-
-  .timeline-snap-section {
-    scroll-snap-align: none;
-    scroll-snap-stop: normal;
-  }
-}
-
-/* Hide scrollbar for timeline but keep functionality */
-.timeline-snap-container::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-
-.timeline-snap-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}

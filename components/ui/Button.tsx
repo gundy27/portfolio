@@ -18,10 +18,10 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-label inline-flex items-center justify-center transition-colors'
+  const baseStyles = 'font-label inline-flex items-center justify-center transition-colors rounded-md disabled:cursor-not-allowed'
   
   const variants = {
-    primary: 'bg-accent text-white hover:opacity-90',
+    primary: 'bg-accent text-white hover:text-gray-300 disabled:text-gray-500',
     secondary: 'bg-transparent text-accent hover:bg-accent/10',
     outline: 'border border-accent text-accent hover:bg-accent/10'
   }

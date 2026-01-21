@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getProject, getProjectContent, getProfile } from '@/lib/content/loader.server'
+import { getProject, getProjectContent } from '@/lib/content/loader.server'
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>
@@ -16,8 +16,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params
   const project = getProject(slug)
   const content = project ? getProjectContent(slug) : null
-  const profile = getProfile()
-  
   if (!project) {
     notFound()
   }
@@ -190,7 +188,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </main>
       
-      <Footer profile={profile} />
+      <Footer />
     </div>
   )
 }

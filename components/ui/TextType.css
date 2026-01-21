@@ -1,0 +1,32 @@
+.text-type {
+  display: inline-grid;
+  white-space: nowrap;
+}
+
+/* Invisible element that reserves width for the longest text */
+.text-type__spacer {
+  visibility: hidden;
+  grid-area: 1 / 1;
+  white-space: pre;
+  pointer-events: none;
+}
+
+/* Wrapper for visible content, overlays the spacer */
+.text-type__visible {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.text-type__content {
+  display: inline;
+}
+
+.text-type__cursor {
+  display: inline;
+  margin-left: 0.08em;
+}
+
+.text-type__cursor--hidden {
+  opacity: 0;
+}

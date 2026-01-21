@@ -1,12 +1,10 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ProjectsPageClient } from '@/components/projects/ProjectsPageClient'
-import { getProfile, getProjects } from '@/lib/content/loader.server'
+import { getProjects } from '@/lib/content/loader.server'
 
 export default function ProjectsPage() {
   const projects = getProjects()
-  const profile = getProfile()
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -15,7 +13,7 @@ export default function ProjectsPage() {
         <ProjectsPageClient projects={projects} />
       </main>
       
-      <Footer profile={profile} />
+      <Footer />
     </div>
   )
 }

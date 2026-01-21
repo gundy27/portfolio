@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import type { Profile, Project, Resource, TimelineEvent } from './types'
+import type { Profile, Project, TimelineEvent } from './types'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
@@ -19,7 +19,11 @@ const defaultProfile: Profile = {
 export function getProfile(): Profile {
   try {
     const filePath = path.join(contentDirectory, 'profile.json')
-    if (!fs.existsSync(filePath)) {
+    const fileExists = fs.existsSync(filePath)
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/bf0f521d-5cb7-4c07-aed8-e5295c19b5a4',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lib/content/loader.server.ts:getProfile',message:'Profile file check',data:{filePath,fileExists},timestamp:Date.now(),sessionId:'debug-session',runId:'initial',hypothesisId:'H1'})}).catch(()=>{});
+    // #endregion
+    if (!fileExists) {
       console.warn('[content] profile.json not found')
       return defaultProfile
     }
@@ -35,14 +39,17 @@ export function getProfile(): Profile {
 export function getProjects(): Project[] {
   try {
     const projectsDirectory = path.join(contentDirectory, 'projects')
-    if (!fs.existsSync(projectsDirectory)) {
+    const dirExists = fs.existsSync(projectsDirectory)
+    const files = dirExists ? fs.readdirSync(projectsDirectory) : []
+    const jsonFiles = files.filter((file) => file.endsWith('.json') && !file.includes('template'))
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/bf0f521d-5cb7-4c07-aed8-e5295c19b5a4',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lib/content/loader.server.ts:getProjects',message:'Projects directory scan',data:{projectsDirectory,dirExists,fileCount:files.length,jsonFileCount:jsonFiles.length},timestamp:Date.now(),sessionId:'debug-session',runId:'initial',hypothesisId:'H2'})}).catch(()=>{});
+    // #endregion
+    if (!dirExists) {
       return []
     }
 
-    const files = fs.readdirSync(projectsDirectory)
-
-    const projects = files
-      .filter((file) => file.endsWith('.json') && !file.includes('template'))
+    const projects = jsonFiles
       .map((file) => {
         try {
           const filePath = path.join(projectsDirectory, file)
@@ -94,7 +101,11 @@ export function getProjectContent(slug: string): string | null {
 
     const filePath = path.join(contentDirectory, 'projects', project.contentFile)
 
-    if (!fs.existsSync(filePath)) {
+    const fileExists = fs.existsSync(filePath)
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/bf0f521d-5cb7-4c07-aed8-e5295c19b5a4',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lib/content/loader.server.ts:getProjectContent',message:'Project content file check',data:{slug,contentFile:project.contentFile,filePath,fileExists},timestamp:Date.now(),sessionId:'debug-session',runId:'initial',hypothesisId:'H5'})}).catch(()=>{});
+    // #endregion
+    if (!fileExists) {
       return null
     }
 
@@ -107,43 +118,15 @@ export function getProjectContent(slug: string): string | null {
   }
 }
 
-// Load all resources
-export function getResources(): Resource[] {
-  try {
-    const resourcesDirectory = path.join(contentDirectory, 'resources')
-    if (!fs.existsSync(resourcesDirectory)) {
-      return []
-    }
-
-    const files = fs.readdirSync(resourcesDirectory)
-
-    const resources = files
-      .filter((file) => file.endsWith('.json') && !file.includes('template'))
-      .map((file) => {
-        try {
-          const filePath = path.join(resourcesDirectory, file)
-          const fileContents = fs.readFileSync(filePath, 'utf8')
-          return JSON.parse(fileContents) as Resource
-        } catch (error) {
-          console.error(`[content] Error loading resource ${file}:`, error)
-          return null
-        }
-      })
-      .filter((r): r is Resource => r !== null)
-
-    return resources.sort((a, b) => b.rating - a.rating)
-  } catch (error) {
-    console.error('[content] Error loading resources:', error)
-    return []
-  }
-}
-
 // Load timeline events
 export function getTimelineEvents(): TimelineEvent[] {
   try {
     const filePath = path.join(contentDirectory, 'timeline', 'events.json')
-
-    if (!fs.existsSync(filePath)) {
+    const fileExists = fs.existsSync(filePath)
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/bf0f521d-5cb7-4c07-aed8-e5295c19b5a4',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lib/content/loader.server.ts:getTimelineEvents',message:'Timeline events file check',data:{filePath,fileExists},timestamp:Date.now(),sessionId:'debug-session',runId:'initial',hypothesisId:'H4'})}).catch(()=>{});
+    // #endregion
+    if (!fileExists) {
       return []
     }
 
