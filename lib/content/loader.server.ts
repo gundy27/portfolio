@@ -118,6 +118,22 @@ export function getProjectContent(slug: string): string | null {
   }
 }
 
+// Get the next project in the sorted list
+export function getNextProject(slug: string): Project | null {
+  const projects = getProjects()
+  const currentIndex = projects.findIndex((p) => p.id === slug)
+  if (currentIndex === -1) return null
+  return projects[currentIndex + 1] ?? null
+}
+
+// Get the previous project in the sorted list
+export function getPreviousProject(slug: string): Project | null {
+  const projects = getProjects()
+  const currentIndex = projects.findIndex((p) => p.id === slug)
+  if (currentIndex === -1) return null
+  return projects[currentIndex - 1] ?? null
+}
+
 // Load timeline events
 export function getTimelineEvents(): TimelineEvent[] {
   try {

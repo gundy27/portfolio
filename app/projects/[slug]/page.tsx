@@ -1,5 +1,6 @@
 import { isValidElement } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -7,7 +8,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { GetInTouch } from '@/components/layout/GetInTouch'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getProject, getProjectContent } from '@/lib/content/loader.server'
+import { getNextProject, getPreviousProject, getProject, getProjectContent } from '@/lib/content/loader.server'
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>
@@ -20,6 +21,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     notFound()
   }
+
+  const previousProject = getPreviousProject(slug)
+  const nextProject = getNextProject(slug)
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -186,6 +190,42 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </div>
           </div>
+
+          {(previousProject || nextProject) && (
+            <nav aria-label="Project navigation" className="mt-12 sm:mt-16 pt-8 border-t border-gray-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {previousProject ? (
+                  <Link
+                    href={`/projects/${previousProject.id}`}
+                    className="group rounded-lg border border-gray-200 p-5 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="text-xs font-medium tracking-wide text-secondary mb-2">
+                      ← Previous Project
+                    </div>
+                    <div className="font-heading text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+                      {previousProject.title}
+                    </div>
+                  </Link>
+                ) : (
+                  <div className="hidden sm:block" />
+                )}
+
+                {nextProject && (
+                  <Link
+                    href={`/projects/${nextProject.id}`}
+                    className="group rounded-lg border border-gray-200 p-5 hover:border-gray-300 hover:bg-gray-50 transition-colors sm:text-right"
+                  >
+                    <div className="text-xs font-medium tracking-wide text-secondary mb-2">
+                      Next Project →
+                    </div>
+                    <div className="font-heading text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+                      {nextProject.title}
+                    </div>
+                  </Link>
+                )}
+              </div>
+            </nav>
+          )}
         </div>
       </main>
       
