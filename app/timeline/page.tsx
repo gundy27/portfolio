@@ -1,7 +1,8 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { GetInTouch } from '@/components/layout/GetInTouch'
 import { TimelineHeader } from '@/components/timeline/TimelineHeader'
-import { TimelineSection } from '@/components/timeline/TimelineSection'
+import { TimelineSticky } from '@/components/timeline/TimelineSticky'
 import { getTimelineEvents } from '@/lib/content/loader.server'
 
 const formatDateRange = (startDate: string, endDate: string | null) => {
@@ -36,23 +37,12 @@ export default function TimelinePage() {
               <p>No timeline entries yet. Add events to the content file to get started.</p>
             </div>
           ) : (
-            <div className="mt-20 relative">
-              {/* Single vertical timeline line (not a rigid grid) */}
-              <div
-                className="absolute left-4 sm:left-6 lg:left-8 top-0 bottom-0 w-px bg-gray-200"
-                aria-hidden="true"
-              />
-
-              <ul className="space-y-14 sm:space-y-20">
-                {timelineEntries.map((entry) => (
-                  <TimelineSection key={`${entry.company}-${entry.dateRange}`} {...entry} />
-                ))}
-              </ul>
-            </div>
+            <TimelineSticky entries={timelineEntries} />
           )}
         </div>
       </main>
 
+      <GetInTouch />
       <Footer />
     </div>
   )

@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { GetInTouch } from '@/components/layout/GetInTouch'
 import { Hero } from '@/components/home/Hero'
 import { PrimaryAttributes } from '@/components/home/PrimaryAttributes'
 import { FeaturedProjects } from '@/components/home/FeaturedProjects'
@@ -19,6 +20,7 @@ export default async function HomePage() {
         <FeaturedProjects projects={featuredProjects} />
       </main>
       
+      <GetInTouch />
       <Footer />
     </div>
   )

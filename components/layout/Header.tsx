@@ -54,7 +54,7 @@ export function Header() {
       transition={{ duration: 0.2, ease: 'easeOut' }}
       className="fixed top-0 left-0 right-0 z-50 navbar-gradient border-b border-gray-200/50"
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="container-wide">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="font-heading text-xl font-semibold text-primary">
             gundy.io

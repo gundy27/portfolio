@@ -55,12 +55,15 @@ This document defines the design system for the portfolio website. **Always refe
 
 #### Section Headers
 
+**REQUIRED**: Always use the `SectionHeader` component when displaying a label above a heading. Never manually create label + heading combinations with custom spacing.
+
 Use the `SectionHeader` component for consistent section introductions:
 
 - **Label**: Uppercase, accent color, positioned above header
 - **Spacing**: 12-16px gap between label and header (responsive)
 - **Header**: Standard heading (H1-H4) with existing typography scale
 - **Usage**: Apply to major sections on project detail pages and home page sections
+- **Enforcement**: Any section with a label above a heading MUST use `SectionHeader` component to ensure consistent spacing
 
 ---
 
@@ -192,14 +195,17 @@ All typography scales responsively:
 
 ### Accent Colors
 
-**Use ONE subtle, muted accent for buttons & labels:**
+**Primary Accent Color**: #598392 (Teal Blue)
 
-- **Teal Blue**: #598392
+**Default Rule**: Use the primary accent color (#598392) for all interactive elements, buttons, links, labels, and UI accents unless explicitly directed otherwise.
 
 **Guidelines:**
 
-- Keep accents minimal — prefer monochrome with a hint of color.
-- Use sparingly for interactive elements only.
+- **Default**: All buttons, links, interactive elements, and section labels should use the accent color
+- **Consistency**: Maintain visual consistency by using the accent color throughout the design system
+- **Exceptions**: Only use alternative colors (e.g., purple, blue) when explicitly specified in design requirements
+- **Minimalism**: Keep accents minimal — prefer monochrome with a hint of color
+- **Interactive Elements**: Use accent color for buttons, links, hover states, and active states
 
 ---
 

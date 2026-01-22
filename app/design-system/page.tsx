@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Label } from '@/components/ui/Label'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { Header } from '@/components/layout/Header'
 
 export const metadata: Metadata = {
@@ -336,6 +337,30 @@ export default function DesignSystemPage() {
                   <Tag>Top Two</Tag>
                   <Tag>Top Three</Tag>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Cards */}
+          <section className="lg:col-span-2">
+            <BlockHeader>CARDS</BlockHeader>
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="space-y-3">
+                <Card
+                  label="ENTREPRENEURIAL"
+                  title="Mindset"
+                  description="Bootstrapping and developing solutions with the business in mind. Leading AI transformations from strategy through production deployment."
+                />
+                <p className="text-xs text-secondary">Hover enabled</p>
+              </div>
+              <div className="space-y-3">
+                <Card
+                  label="ENTREPRENEURIAL"
+                  title="Mindset"
+                  description="Building repeatable frameworks that turn ambiguity into structured programs with clear milestones and measurable business impact."
+                  hover={false}
+                />
+                <p className="text-xs text-secondary">Hover disabled</p>
               </div>
             </div>
           </section>

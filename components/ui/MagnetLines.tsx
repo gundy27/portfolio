@@ -4,9 +4,12 @@ import { useRef, useEffect } from 'react'
 import './MagnetLines.css'
 
 interface MagnetLinesProps {
+  variant?: 'square' | 'divider'
   rows?: number
   columns?: number
   containerSize?: string
+  containerWidth?: string
+  containerHeight?: string
   lineColor?: string
   lineWidth?: string
   lineHeight?: string
@@ -16,9 +19,12 @@ interface MagnetLinesProps {
 }
 
 export default function MagnetLines({
+  variant = 'square',
   rows = 9,
   columns = 9,
   containerSize = '80vmin',
+  containerWidth,
+  containerHeight,
   lineColor = '#efefef',
   lineWidth = '1vmin',
   lineHeight = '6vmin',
@@ -91,8 +97,8 @@ export default function MagnetLines({
         display: 'grid',
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridTemplateRows: `repeat(${rows}, 1fr)`,
-        width: containerSize,
-        height: containerSize,
+        width: containerWidth ?? (variant === 'divider' ? '100%' : containerSize),
+        height: containerHeight ?? (variant === 'divider' ? 'clamp(96px, 14vw, 180px)' : containerSize),
         ...style
       }}
     >

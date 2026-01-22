@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { GetInTouch } from '@/components/layout/GetInTouch'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getProject, getProjectContent } from '@/lib/content/loader.server'
 
@@ -188,6 +189,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </main>
       
+      <GetInTouch />
       <Footer />
     </div>
   )

@@ -1,5 +1,6 @@
 .magnetLines-container {
   place-items: center;
+  overflow: hidden;
 }
 
 .magnetLines-container span {
